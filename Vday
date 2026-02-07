@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Be My Valentine 💖</title>
+<style>
+body {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    overflow: hidden;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    color: #ff4d6d;
+    font-size: 32px;
+}
+
+p {
+    color: #555;
+    font-size: 18px;
+}
+
+.buttons {
+    margin-top: 25px;
+}
+
+button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background: #ff4d6d;
+    color: white;
+}
+
+#yesBtn:hover {
+    background: #ff1e50;
+}
+
+#noBtn {
+    background: #ddd;
+    position: absolute;
+}
+
+.hearts span {
+    position: absolute;
+    color: #ff4d6d;
+    font-size: 24px;
+    animation: float 6s infinite linear;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+.success {
+    display: none;
+}
+
+.success h1 {
+    font-size: 36px;
+}
+</style>
+</head>
+
+<body>
+<div class="hearts"></div>
+
+<div class="container">
+    <div class="card" id="mainCard">
+        <h1>Shaili, Will you be my Valentine? 💕</h1>
+        <p>bubs,you make my world brighter every day ✨</p>
+        <div class="buttons">
+            <button id="yesBtn">Yes 💖</button>
+            <button id="noBtn">No 😢</button>
+        </div>
+    </div>
+
+    <div class="card success" id="successCard">
+        <h1>Yayyyy!! 🥰💘</h1>
+        <p>You just made me the happiest person ever ❤️</p>
+        <p>I can’t wait for our Valentine’s Day together 💑</p>
+    </div>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const mainCard = document.getElementById("mainCard");
+const successCard = document.getElementById("successCard");
+
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+const song = document.getElementById("song");
+const canvas = document.getElementById("fireworks");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+yesBtn.addEventListener("click", () => {
+    mainCard.style.display = "none";
+    successCard.style.display = "block";
+    song.play();
+    startFireworks();
+});
+
+
+// Floating hearts
+const heartsContainer = document.querySelector(".hearts");
+
+setInterval(() => {
+    const heart = document.createElement("span");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 20 + "px";
+    heartsContainer.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}, 300);
+</script> const song = document.getElementById("song");
+const canvas = document.getElementById("fireworks");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+yesBtn.addEventListener("click", () => {
+    mainCard.style.display = "none";
+    successCard.style.display = "block";
+    song.play();
+    startFireworks();
+});
+
+
+<canvas id="fireworks"></canvas>
+<style> #fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+</body>
+</html>
